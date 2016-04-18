@@ -1,0 +1,77 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        .logo, .logo:hover {
+            display: block;
+        }
+
+        .login-container {
+            padding: 10px;
+        }
+        form.login-form div.control-group {
+            padding: 10px;
+        }
+        section.sidebar > form {
+            display: none;
+        }
+
+        .select2-container {
+            display: inline-block;
+        }
+        .select2-container .select2-choice {
+            border-radius: 0;
+            background-image: none;
+            border: 1px solid #ccc;
+            padding: 3px 12px;
+            height: auto;
+            min-height: 32px;
+        }
+
+        .select2-container .select2-choice .select2-arrow {
+            border-radius: 0;
+            background-image: none;
+            border-left: 1px solid #ccc;
+        }
+
+        .sonata-ba-form-error ul {
+            list-style-type: none;
+            padding: 0 0 0 20px;
+        }
+
+        .sonata-ba-form-error ul li {
+            background-color: #f2dede;
+            padding: 10px;
+            color: #a94442;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1023px) {
+            td.sonata-ba-list-field .btn-group a {
+                font-size: 0;
+                color: transparent;
+            }
+            td.sonata-ba-list-field .btn-group i {
+                font-size: 12px;
+                color: #666;
+            }
+        }
+    </style>
+
+{% endblock %}
+
+{% block logo %}
+    <a href="{{ url('sonata_admin_dashboard') }}" class="logo">
+        <span>IIT</span>
+    </a>
+{% endblock %}
+
+{% block sonata_head_title %}
+    IIT - Backoffice - {{ parent() }}
+{% endblock %}
+
+{% block side_bar_after_nav %}
+{% endblock %}
+

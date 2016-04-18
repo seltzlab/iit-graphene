@@ -35,6 +35,10 @@ class Division
      */
     private $content;
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 
     /**
      * Get id

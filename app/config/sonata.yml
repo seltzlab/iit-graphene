@@ -1,0 +1,31 @@
+# app/config/config.yml
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.block.service.text:
+            contexts:   [admin]
+
+sonata_admin:
+    title: IIT - Graphene
+    templates:
+        layout: ::admin_base.html.twig
+    #security:
+    #    handler: sonata.admin.security.handler.role
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <div class="jumbotron">
+                        <h3>IIT</h3>
+                        <h1>Welcome</h1>
+                        <p><a href="http://www.iit.it">www.iit.it</a></p>
+                        </div>
+            -
+                position: center
+                type: sonata.admin.block.admin_list
