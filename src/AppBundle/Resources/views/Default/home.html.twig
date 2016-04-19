@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<ul>
+    {% for division in divisions %}
+    <li>
+        <h2>{{ division.title }}</h2>
+        <p>{{ division.content }}</p>
+        {% thumbnail division.image, "small" %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

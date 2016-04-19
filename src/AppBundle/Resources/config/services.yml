@@ -4,3 +4,9 @@ services:
         arguments: [~, AppBundle\Entity\Division, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: CMS, label: Division}
+
+    app.admin.tag:
+        class: AppBundle\Admin\TagAdmin
+        arguments: [~, AppBundle\Entity\Tag, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: CMS, label: Tag}

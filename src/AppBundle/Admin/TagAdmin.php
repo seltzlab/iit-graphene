@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class DivisionAdmin extends Admin
+class TagAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,8 +16,8 @@ class DivisionAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('title')
-            ->add('content')
         ;
     }
 
@@ -27,11 +27,11 @@ class DivisionAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            //->add('id')
+            ->add('id')
             ->add('title')
-            ->add('content')
             ->add('_action', 'actions', array(
                 'actions' => array(
+                    'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 )
@@ -46,18 +46,6 @@ class DivisionAdmin extends Admin
     {
         $formMapper
             ->add('title')
-            ->add('content')
-            ->add('image', 'sonata_type_model_list', [], [
-                'link_parameters' => [
-                    'context' => 'default',
-                    'provider' => 'sonata.media.provider.image'
-                ]
-            ])
-            ->add('tags', 'sonata_type_model', array(
-                'property' => 'title',
-                'multiple' => true,
-                'btn_add' => "Aggiungi tag"
-            ))
         ;
     }
 
@@ -69,12 +57,7 @@ class DivisionAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('title')
-            ->add('content')
+            ->add('divisions')
         ;
-    }
-
-    public function getFormTheme()
-    {
-        return "::admin_form_theme.html.twig";
     }
 }

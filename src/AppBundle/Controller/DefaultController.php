@@ -13,9 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $divisions = $this->getDoctrine()->getRepository('AppBundle:Division')->findAll();
+        
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        return $this->render('AppBundle:Default:home.html.twig', array(
+            'divisions' => $divisions,
         ));
     }
 }
